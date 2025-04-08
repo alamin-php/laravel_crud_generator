@@ -6,13 +6,15 @@ A simple and powerful Laravel CRUD Generator package to speed up your developmen
 
 - Generate full CRUD operations with customizable fields and relations.
 - Auto-generate:
-  - Model
-  - Controller
-  - Request Validation
-  - Migration
-  - Resource Route
-  - Blade Views (Bootstrap 5)
+  - A Model with fillable attributes
+  - A Migration with appropriate data types and indexes
+  - A Controller with CRUD methods following RESTful conventions
+  - A Form Request for validation
+  - API routes in api.php
+  - Blade views using reusable components (TailwindCSS)
+  - Relationships based on the --relations flag (e.g., belongsToMany)
 - Customizable stub files
+- Token-based authentication using Laravel Sanctum, with a Repository + Service pattern for clean and maintainable code.
 - Clean & optimized code structure
 
 ---
