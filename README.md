@@ -1,6 +1,6 @@
 # Laravel CRUD Generator
 
-A simple and powerful Laravel CRUD Generator package to speed up your development process. This package automatically generates Models, Controllers, Requests, Migrations, Routes, and Views for your Laravel applications.
+A simple and powerful Laravel CRUD Generator to speed up your development process. This CRUD Generator automatically generates Models, Controllers, Requests, Migrations, Routes, and Views for your Laravel applications.
 
 ## Features
 
@@ -14,14 +14,22 @@ A simple and powerful Laravel CRUD Generator package to speed up your developmen
   - Blade views using reusable components (TailwindCSS)
   - Relationships based on the --relations flag (e.g., belongsToMany)
 - Customizable stub files
-- Token-based authentication using Laravel Sanctum, with a Repository + Service pattern for clean and maintainable code.
+- Token-based authentication using Laravel Sanctum, with a Service-Repository Pattern for clean and maintainable code.
 - Clean & optimized code structure
 
 ---
 
 ## Installation
 
-1. Clone the project:
-
 ```bash
+1. Clone the project:
 git clone https://github.com/alamin-php/laravel_crud_generator.git
+
+2. Run composer update:
+composer update
+
+3. Example Command with --relation flag:
+php artisan make:crud Project1 --fields="name:string, description:text, status:enum(open,closed)" --relations="tasks:hasMany"
+
+4. Example Command without --relation flag:
+php artisan make:crud Task1 --fields="title:string, description:text, status:boolean"
