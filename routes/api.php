@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [App\Http\Controllers\AuthController::class, 'register']);
 Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->post('logout', [App\Http\Controllers\AuthController::class, 'logout']);
-
+Route::middleware('auth:sanctum')->post('send-notification', [App\Http\Controllers\NotificationController::class, 'send']);
 
 Route::middleware('auth:sanctum')->apiResource('projects', App\Http\Controllers\ProjectController::class);
 
