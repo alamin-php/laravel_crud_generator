@@ -9,4 +9,5 @@ interface AuthInterface
     public function register(array $data);
     public function login(string $email, string $password);
     public function logout(array $user);
+    public function findByEmail(string $email);
 }

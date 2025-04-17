@@ -2,7 +2,9 @@
 
 namespace App\Services;
 
+use App\Http\Resources\UserResource;
 use App\Repositories\AuthRepository;
+use Hash;
 use Illuminate\Auth\AuthenticationException;
 
 class AuthService
@@ -23,12 +25,15 @@ class AuthService
 
     public function login(string $email, string $password)
     {
-        $token = $this->authRepository->login($email, $password);
-        if (!$token) {
-            throw new AuthenticationException('Invalid credentials.');
+        $user = $this->authRepository->findByEmail($email);
+        if (!$user || !Hash::check($password, $user->password)) {
+            return null;
         }
-
-        return $token;
+        $token = $user->createToken('token')->plainTextToken;
+        return [
+            'token' => $token,
+            'user' => new UserResource($user),
+        ];
     }
 
     public function logout($user)

@@ -32,6 +32,12 @@ class AuthRepository implements AuthInterface
         return $user->createToken('auth_token')->plainTextToken;
     }
 
+    public function findByEmail(string $email)
+    {
+        return $this->model->where('email', $email)->first();
+    }
+
+
     public function logout($model)
     {
         $model->tokens()->delete();
